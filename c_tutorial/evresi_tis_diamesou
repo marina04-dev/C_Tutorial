@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+
+#define SIZE 1000
+
+
+int main()
+{
+    int array[SIZE],N;
+    float x1,x2,y;
+        
+    printf("Dwse to megethos tou pinaka: ");
+    scanf("%d", &N);
+    
+    if (N%2==0) {
+      x1=array[N/2];
+      x2=array[N/2+1];
+      y=x1/x2;
+      printf("H diamesos einai %f",y);
+    }
+    else if(N%2!=0) {
+      y=array[(N+1)/2];
+      printf("H diamesos einai %f",y);
+    }
+        
+
+}
