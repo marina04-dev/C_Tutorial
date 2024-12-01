@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+#define N 4
+#define M 20
+
+int main() {
+    unsigned char c;
+    int i;
+    
+    /* 1st line of our result */
+    printf("%c",201);
+    for (i=1; i<=M; i++) {
+        printf("%c",205);}
+    printf("%c",187);
+    
+    /* 2nd line of our result */
+    printf("\n%c",186);
+    for (i=1; i<=N; i++) {
+        printf(" ",205);}
+    printf("Hello World!");
+    for (i=1; i<=N; i++) {
+        printf(" ",205);}
+    printf("%c",186);
+    
+    /*3rd line of our result */
+    printf("\n%c",200);
+    for (i=1; i<=M; i++) {
+        printf("%c",205);}
+    printf("%c",188);
+}
