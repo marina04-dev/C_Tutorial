@@ -1,0 +1,26 @@
+
+#include <stdio.h>
+
+#define SIZE 1000
+
+char *mystrcpy(char *dest,char&src);
+
+int main() {
+    char str1[SIZE];
+    printf("Type your string: ");
+    gets(str1); 
+    char str2[SIZE];
+    printf("Type your string: ");
+    gets(str2); 
+}
+
+char *mystrcpy(char *dest,char&src) {
+    int i;
+    while (src[i]!='\0') {
+        dest[i]=src[i];
+        i++;
+    }
+    dest[i]='\0';
+    return dest;
+    while 
+}
