@@ -1,0 +1,41 @@
+
+#include <stdio.h>
+
+#define SIZE 1000
+
+char *mystrcpy(char *dest,char *src);
+
+int main() {
+
+    int choice;
+
+    char str1[SIZE];
+    printf("Type your string: ");
+    gets(str1); 
+
+    char str2[SIZE];
+    printf("Type your string: ");
+    gets(str2); 
+
+    char str3[SIZE];
+    printf("Choose on of the above strings(1 or 2): ");
+    scanf("%d",&choice);
+
+    if (choice==1) {
+        mystrcpy(str3,str1); }
+    else if (choice==2) {
+        mystrcpy(str3,str2); }
+
+    printf("\n\n1: %s\n\n2: %s\n\n3: %s",str1,str2,str3);
+}
+
+char *mystrcpy(char *dest,char *src) {
+    int i;
+    while (1) {
+        dest[i]=src[i];
+        if (src[i]=='\0') 
+            break;
+        i++;
+    }
+    return dest;
+}
