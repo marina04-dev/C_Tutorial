@@ -51,6 +51,7 @@ int main()
             default:
                 printf("Lathos eisodos!");
             }
+	    printf("\n\n");
 	    system("pause");
     }
 
