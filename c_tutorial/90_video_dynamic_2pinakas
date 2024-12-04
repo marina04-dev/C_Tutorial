@@ -1,0 +1,33 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+   
+   int **p;
+   int i,j,N,M;
+   
+   printf("Dwse tin prwti diastasi tou pinaka: ");
+   scanf("%d",&N);
+   printf("Dwse tin deuteri diastasi tou pinaka: ");
+   scanf("%d",&M);
+   
+   p = malloc(sizeof(int)*N);
+   if (!p) {
+       printf("Adynamia desmeusis mnimis");
+       exit(0);
+   }
+   for (i=0; i<N; i++) {
+       p[i] = malloc(sizeof(int)*M);
+       if (!p[i]) {
+           printf("Adynamia desmeusis mnimis");
+           exit(0);
+       }
+   }
+   
+   for (i=0; i<N; i++) {
+       free (p[i]);
+   }
+   
+   free(p);
+}
