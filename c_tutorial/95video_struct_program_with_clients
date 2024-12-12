@@ -1,0 +1,35 @@
+/* struct.c Deixnei tin vasiki leitourgia mias domis  */
+#include <stdio.h>
+
+struct date {
+    int day;
+    int month;
+    int year;
+};
+
+struct person {
+    char name[80];
+    char surname[80];
+    struct date birthdate;
+};
+
+
+int main() {
+    struct person p;
+    printf("Give your name: ");
+    scanf("%s", p.name);
+    
+    printf("Give your surname: ");
+    scanf("%s", p.surname);
+    
+    printf("Give your birthday: ");
+    scanf("%d", &p.birthdate.day);
+    
+    printf("Give your birthmonth: ");
+    scanf("%d", &p.birthdate.month);
+    
+    printf("Give your birthyear: ");
+    scanf("%d", &p.birthdate.year);
+    
+    printf("\n%s %s (%d/%d/%d)", p.name, p.surname, p.birthdate.day, p.birthdate.month, p.birthdate.year);
+}
