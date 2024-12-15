@@ -1,0 +1,95 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+
+#define SIZE 80
+
+struct person {
+    char *onoma;
+    char *diefthinsi;
+    char *arithmos;
+    char *nomos;
+};
+
+/*orizw RECORD anti gia struct person */
+typedef struct person RECORD;
+/*orizw sunartisi pou diavazei eisodo (anafora)*/
+void read_record(RECORD *p);
+/*orizw sunartisi pou tupwnei eisodo (timi)*/
+void print_record(RECORD x);
+/*orizw sunartisi pou desmeuei dunamika mnimi gia tin eisodo (anafora)*/
+void init_record(RECORD *p);
+/*orizw sunartisi pou apodesmeuei mnimi (timi) */
+void free_record(RECORD x);
+
+int main() {
+    RECORD a,b;
+   
+    /*prwvtou orisw ta 2 stigmiotypa desmeuw mnimi me thn synartisi init me diefthinsi giati tha allaksei tis times twn deiktwn*/
+    init_record(&a);
+    init_record(&b);
+    
+    /*apodesmeusi mnimis me tin sunartisi free */
+    free_record(a);
+    free_record(b);
+    
+    printf("1o atomo: \n");
+    read_record(&a);
+    
+    printf("2o atomo: \n");
+    read_record(&b);
+    
+    print_record(a);
+    print_record(b);
+}
+
+void read_record(RECORD *p) {
+    printf("Dwse to onoma: ");
+    scanf("%s", p->onoma);
+    
+    printf("Dwse tin diefthinsi: ");
+    scanf("%s", p->diefthinsi);
+    
+    printf("Dwse ton arithmo: ");
+    scanf("%s", p->arithmos);
+    
+    printf("Dwse ton nomo: ");
+    scanf("%s", p->nomos);
+}
+
+void print_record(RECORD x) {
+    printf("\n%s: %s %s %s",x.onoma,x.diefthinsi,x.arithmos,x.nomos);
+}
+
+void init_record(RECORD *p) {
+    p->onoma = malloc(sizeof(char)*SIZE);
+    if (!p->onoma) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+    
+    p->diefthinsi = malloc(sizeof(char)*SIZE);
+    if (!p->diefthinsi) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+    
+    p->arithmos = malloc(sizeof(char)*SIZE);
+    if (!p->arithmos) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+    
+    p->nomos = malloc(sizeof(char)*SIZE);
+    if (!p->nomos) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+}
+    
+void free_record(RECORD x) {
+    free(x.onoma);
+    free(x.diefthinsi);
+    free(x.arithmos);
+    free(x.nomos);
+}
