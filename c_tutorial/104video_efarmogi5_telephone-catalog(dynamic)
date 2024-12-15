@@ -1,0 +1,112 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+
+
+#define SIZE 80
+
+struct person {
+    char *onoma;
+    char *diefthinsi;
+    char *arithmos;
+    char *nomos;
+};
+
+/*orizw RECORD anti gia struct person */
+typedef struct person RECORD;
+/*orizw sunartisi pou diavazei eisodo (anafora)*/
+void read_record(RECORD *p);
+/*orizw sunartisi pou tupwnei eisodo (timi)*/
+void print_record(RECORD x);
+/*orizw sunartisi pou desmeuei dunamika mnimi gia tin eisodo (anafora)*/
+void init_record(RECORD *p);
+/*orizw sunartisi pou apodesmeuei mnimi (timi) */
+void free_record(RECORD x);
+
+int main() {
+    RECORD *pinakas;
+    int i,N;
+    
+    /* Diavasma tou N pou einai to plithos twn eggraphwn pou tha dwsei o xristis */
+    printf("Dwse to plithos twn eggraphwn: ");
+    scanf("%d",&N);
+    
+    /* Desmeusi pinaka dunamika me malloc  */
+    pinakas = malloc(sizeof(RECORD)*N);
+    if(!pinakas) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+    /* Arxikopoihsi twn stigmiotypwn */
+    for (i=0; i<N; i++) {
+        init_record(&pinakas[i]);
+    }
+    
+    /* Diavasma twn dedomenwn twn stigmiotypwn */
+    for (i=0; i<N; i++) {
+        printf("%d-o atomo: \n",i+1);
+        read_record(&pinakas[i]);
+    }
+    
+    /*Ektiposi twn stigmiotypwn */
+    for (i=0; i<N; i++) {
+        print_record(pinakas[i]);
+    }
+    
+    /* Apodesmeusi mnimis */
+    for (i=0; i<N; i++) {
+        free_record(pinakas[i]);
+    }
+    free(pinakas);
+}
+
+void read_record(RECORD *p) {
+    printf("Dwse to onoma: ");
+    scanf("%s", p->onoma);
+    
+    printf("Dwse tin diefthinsi: ");
+    scanf("%s", p->diefthinsi);
+    
+    printf("Dwse ton arithmo: ");
+    scanf("%s", p->arithmos);
+    
+    printf("Dwse ton nomo: ");
+    scanf("%s", p->nomos);
+}
+
+void print_record(RECORD x) {
+    printf("\n%s: %s %s %s",x.onoma,x.diefthinsi,x.arithmos,x.nomos);
+}
+
+void init_record(RECORD *p) {
+    p->onoma = malloc(sizeof(char)*SIZE);
+    if (!p->onoma) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+    
+    p->diefthinsi = malloc(sizeof(char)*SIZE);
+    if (!p->diefthinsi) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+    
+    p->arithmos = malloc(sizeof(char)*SIZE);
+    if (!p->arithmos) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+    
+    p->nomos = malloc(sizeof(char)*SIZE);
+    if (!p->nomos) {
+        printf("Adynamia desmeusis mnimis");
+        exit(0);
+    }
+}
+    
+void free_record(RECORD x) {
+    free(x.onoma);
+    free(x.diefthinsi);
+    free(x.arithmos);
+    free(x.nomos);
+}
