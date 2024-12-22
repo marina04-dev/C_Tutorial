@@ -1,0 +1,12 @@
+
+#include <stdio.h>
+
+int main() {
+    char string[100];
+    
+    printf("Give the string: ");
+    gets(string);
+    
+    printf("The string is: ");
+    puts(string);
+}
