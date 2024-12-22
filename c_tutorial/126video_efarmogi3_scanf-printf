@@ -1,0 +1,14 @@
+
+#include <stdio.h>
+
+int main() {
+    char string[100];
+    int ret;
+    
+    printf("Give the string: ");
+    while (1) {
+        ret=scanf("%s",string);
+        printf("\n%d: %s",ret,string);
+    }
+    
+}
