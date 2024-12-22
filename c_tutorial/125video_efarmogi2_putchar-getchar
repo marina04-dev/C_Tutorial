@@ -1,0 +1,24 @@
+
+#include <stdio.h>
+
+int main() {
+    char c;
+    int i;
+    char string[100];
+    c=getchar();
+    i=0;
+    while (c!='\n') {
+        string[i]=c;
+        c=getchar();
+        i++;
+    }
+    string[i]='\0';
+    
+    printf("Give the string: ");
+    i=0;
+    while (string[i]!='\0') {
+        putchar(string[i]);
+        i++;
+    }
+    
+}
