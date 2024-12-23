@@ -1,0 +1,16 @@
+/* atoi.c: it shows the function atoi  */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    int x,y;
+    
+    if(argc!=3) {
+        printf("You have to input 2 values!");
+    }
+    else {
+        x=atoi(argv[1]);
+        y=atoi(argv[2]);
+        printf("\nValues = %d and %d",x,y);
+    }
+}
