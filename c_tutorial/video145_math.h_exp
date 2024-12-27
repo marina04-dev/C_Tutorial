@@ -1,0 +1,18 @@
+
+#include <stdio.h>
+#include <math.h>
+
+double f(double x);
+
+int main()
+{
+    double d;
+    printf("Give a double: ");
+    scanf("%lf",&d);
+    
+    printf("The result is: ",f(d));
+}
+
+double f(double x) {
+    return exp 1/(1*exp(-x));
+}
