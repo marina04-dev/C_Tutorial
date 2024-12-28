@@ -1,4 +1,4 @@
-/* ftell.c */
+/* ftell.c : it returns the position of the cursor(the distance in bytes)*/
 #include <stdio.h>
 #include <stdlib.h>
 
