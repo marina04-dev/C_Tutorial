@@ -14,7 +14,7 @@ int main() {
     fprintf(fp,"0123456789");
     
     fclose(fp);
-    fp=fopen("temp.txt","a");
+    fp=fopen("temp.txt","a+");
     printf("POS=%ld",ftell(fp));
     
     fclose(fp);
