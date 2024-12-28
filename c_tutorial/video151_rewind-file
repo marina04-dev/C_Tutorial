@@ -1,4 +1,4 @@
-/* rewind.c : this function can move the cursor*/
+/* rewind.c : cursor function*/
 #include <stdio.h>
 #include <stdlib.h>
 
