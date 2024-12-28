@@ -1,0 +1,34 @@
+/* binary file */
+#include <stdio.h>
+#include <stdlib.h>
+#define N 10
+
+struct point {
+    int x;
+    int y;
+}
+
+int main() {
+    FILE *fp;
+    char c;
+    int i;
+    struct point data[N];
+    
+    fp=fopen("binarydata.dat","wb");
+    if (fp==NULL) {
+        printf("Error in the opening of the file");
+        exit(0);
+    }
+    
+    /* Random value input */
+    for (i=0; i<N; i++) {
+        data[i].x=rand()%100;
+        data[i].y=rand()%100;
+    }
+    
+    /* Writting on the file  */
+    fwrite(data,sizeof(struct point), N, fp);
+    
+    fclose(fp);
+    
+}
