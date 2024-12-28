@@ -1,0 +1,22 @@
+/* fprintf.cpp Writing in a file  */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fp;
+    int x=1;
+    
+    /*Opening the file */
+    fp=fopen("test.txt","w");
+    if (fp=NULL) {
+        printf("Error in the opening of the file");
+        exit(0);
+    }
+    
+    /*Writting to the file */
+    fprintf(fp,"One line\n");
+    fprintf(fp,"And some numbers: %d %d %d",x,x*5,x/2);
+    
+    /*Closing of the file */
+    fclose(fp);
+}
