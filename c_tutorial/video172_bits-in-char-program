@@ -1,0 +1,36 @@
+/* bits_in_char.c : Printing of the bits of a byte  */
+#include <stdio.h>
+
+#define BITS 8
+
+/* get_bit function: returns the bit which is in the i position of the byte */
+int get_bit(int pos, unsigned char byte);
+
+/* bits_print function: prints a byte  */
+void bits_print(unsigned char byte);
+
+int main() {
+    unsigned char byte = 53;
+    
+    printf("\n%d=",byte);
+    bits_print(byte);
+    
+    return 0;
+}
+
+
+int get_bit(int pos, unsigned char byte_char) {
+    int i;
+    
+    for (i=0; i<BITS-pos-1; i++) {
+        byte_char=byte_char/2;
+    }
+    return byte_char%2;
+}
+
+void bits_print(unsigned char byte) {
+    int i;
+    for (i=0; i<BITS; i++) {
+        printf("%d",get_bit(i,byte));
+    }
+}
