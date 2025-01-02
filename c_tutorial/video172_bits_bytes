@@ -19,3 +19,26 @@ int main() {
     
     return 0;
 }
+
+
+
+/* bits_in_int.c: Bits in unsigned int */
+
+#define BITS 32
+
+int main() {
+    unsigned int byte = 3;
+    int bits[BITS];
+    int i;
+    
+    for (i=0; i<BITS; i++) {
+        bits[BITS-1-i]=byte%2;
+        byte=byte/2;
+    }
+    
+    for (i=0; i<BITS; i++) {
+        printf("%d",bits[i]);
+    }
+    
+    return 0;
+}
