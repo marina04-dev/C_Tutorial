@@ -1,0 +1,52 @@
+/* exercise 1 */
+#include <stdio.h>
+#define BITS 8
+
+int LSB(unsigned char byte);
+
+int MSB(unsigned char byte);
+
+void bits_print(unsigned char byte);
+
+int get_bit(int pos, unsigned char byte);
+
+int main()
+{
+    unsigned char byte = 155;
+    bits_print(byte);
+    printf("\nLSB=%d",LSB(byte));
+    printf("\nMSB=%d",MSB(byte));
+}
+
+int LSB(unsigned char byte) {
+    /* 1st way: mask use  */
+    unsigned char mask = 1;
+    return byte & mask;
+    /* 2nd way : %2  */
+    return byte%2;
+}
+
+int MSB(unsigned char byte) {
+    /* 1st way: mask use-use of right slides of the byte */
+    unsigned char mask = 1;
+    return (byte >> BITS -1) & mask;
+    /* 2nd way: %2 use-use of right slides of the byte */
+    return (byte >> BITS -1) % 2;
+}
+
+
+
+int get_bit(int pos, unsigned char byte) {
+    int i;
+    for (i=0; i<BITS-pos-1, i++) {
+        byte=byte/2; }
+    return byte%2;
+}
+
+
+void bits_print(unsigned char byte) {
+    int i;
+    for (i=0; i<BITS; i++) {
+        printf("%d",get_bit(i,byte));
+    }
+}
