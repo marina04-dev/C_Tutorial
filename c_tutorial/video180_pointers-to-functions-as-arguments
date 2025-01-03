@@ -1,0 +1,31 @@
+/* function_with_pointers_as_arguments  */
+#include <stdio.h>
+
+int inc(int x);
+int dec(int x);
+int half(int x);
+
+int func(int(*ptr1)(int),int arg);
+
+int main() {
+    printf("Result = %d",func(inc,2));
+}
+
+
+int inc(int x) {
+    return ++x;
+}
+
+int dec(int x) {
+    return --x;
+}
+
+int half(int x) {
+    return x/2;
+}
+
+
+
+int func(int(*ptr1)(int),int arg) {
+    return ptr1(arg);
+}
