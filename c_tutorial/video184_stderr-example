@@ -1,0 +1,18 @@
+/* stderr2.c */
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int *p;
+    
+    printf("Start of the program\n");
+    
+    p=(int *)malloc(sizeof(int)*100000000000);
+    if (!p) {
+        fprintf(stderr,"Error allocating memory!\n");
+        exit(EXIT_FAILURE);
+    }
+    printf("End of the program\n");
+    free(p);
+    exit(EXIT_SUCCESS);
+}
