@@ -1,0 +1,20 @@
+/* errno.c */
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+
+int main() {
+    int *p;
+    
+    printf("Start of program\n");
+    
+    p=(int *)malloc(sizeof(int)*1000000000000);
+    if (!p) {
+        fprintf(stderr,"errno: %d\n",errno);
+        fprintf(stderr,"Error Allocating Memory!\n");
+        exit(EXIT_FAILURE);
+    }
+    printf("End of program\n");
+    free(p);
+    exit(EXIT_SUCCESS);
+}
