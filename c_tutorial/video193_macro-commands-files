@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+
+#define FOPEN(fp,file_name,mode) fp=fopen(#file_name,#mode); \
+    if (!fp) { \
+        fprintf(stderr, "Error Opening File"); \
+        exit(errno); \
+    }
+    
+int main() {
+    FILE *fp;
+    
+    FOPEN(fp,file.txt,r);
+    fclose(fp);
+}
